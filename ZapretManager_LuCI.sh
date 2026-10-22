@@ -7473,7 +7473,7 @@ do_mixomo_install() {
 
 	echo "==> Определяем последнюю версию Mihomo"
 	local tag
-	tag=$(curl -Ls --connect-timeout 5 --max-time 10 -o /dev/null -w '%{url_effective}' "https://github.com/MetaCubeX/mihomo/releases/latest" 2>/dev/null | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+	tag="v1.19.33"
 	[ -n "$tag" ] || { echo "ОШИБКА: не удалось определить версию Mihomo"; return 1; }
 	echo "==> Версия: $tag"
 
