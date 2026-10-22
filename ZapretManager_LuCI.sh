@@ -7473,7 +7473,7 @@ do_mixomo_install() {
 
 	echo "==> Определяем последнюю версию Mihomo"
 	local tag
-	tag="v1.19.33"
+	tag="v1.19.30"
 	[ -n "$tag" ] || { echo "ОШИБКА: не удалось определить версию Mihomo"; return 1; }
 	echo "==> Версия: $tag"
 
