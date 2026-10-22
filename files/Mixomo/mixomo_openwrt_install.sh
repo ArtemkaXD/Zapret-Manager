@@ -207,7 +207,7 @@ install_mihomo() {
 
     echo "Получение номера последней версии"
     local RELEASE_TAG
-    RELEASE_TAG=$(curl -Ls -o /dev/null -w '%{url_effective}' https://github.com/MetaCubeX/mihomo/releases/latest | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1)
+    RELEASE_TAG=$(echo "v1.19.30" | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1)
     if [ -z "$RELEASE_TAG" ]; then
         log_error "Не удалось определить версию. Проверьте интернет."
         return 1
