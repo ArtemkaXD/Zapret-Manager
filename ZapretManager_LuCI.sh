@@ -7482,7 +7482,7 @@ do_mixomo_install() {
 	url="${GH_MAIN}/MetaCubeX/mihomo/releases/download/${tag}/${file}"
 	tmp="/tmp/mihomo.gz"
 	echo "==> Скачиваем $file"
-	curl -sSLf --connect-timeout 5 --max-time 90 --retry 3 --retry-delay 2 "$url" -o "$tmp" >&2 || { echo "ОШИБКА: не удалось скачать $file ($url)"; rm -f "$tmp"; return 1; }
+	curl -sSLf --connect-timeout 5 --max-time 120 --retry 3 --retry-delay 2 "$url" -o "$tmp" >&2 || { echo "ОШИБКА: не удалось скачать $file ($url)"; rm -f "$tmp"; return 1; }
 	gunzip -c "$tmp" >/dev/null 2>&1 || { echo "ОШИБКА: архив $file скачался повреждённым — прежнее ядро Mihomo не тронуто"; rm -f "$tmp"; return 1; }
 	[ -f /etc/init.d/mihomo ] && /etc/init.d/mihomo stop >/dev/null 2>&1
 	gunzip -c "$tmp" > "$MIHOMO_BIN" 2>/dev/null || { echo "ОШИБКА: не удалось распаковать архив"; rm -f "$tmp"; return 1; }
